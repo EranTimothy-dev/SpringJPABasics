@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: db
+  datasource:
+    url: jdbc:postgresql://localhost:5430/postgres
+    username: postgres
+    password: timmy
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database: postgresql
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true

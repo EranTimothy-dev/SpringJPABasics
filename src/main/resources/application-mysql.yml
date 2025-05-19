@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: db
+  datasource:
+    url: jdbc:mysql://localhost:3305/data_jpa?createDatabaseIfNotExist=true
+    username: root
+    password: timmy
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true
+    database: mysql
+    hibernate:
+      ddl-auto: create-drop
