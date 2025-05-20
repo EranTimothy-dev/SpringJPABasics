@@ -1,25 +1,24 @@
 package com.db.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 import org.apache.catalina.LifecycleState;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
+@EqualsAndHashCode(callSuper=false) // need to use when using inheritance
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name = "Author_Tbl", schema = "public")
-@Builder
-public class Author {
+@SuperBuilder
+public class Author extends BaseEntity {
 
-    @Id
-    @GeneratedValue
+//    @Id
+//    @GeneratedValue
 //            (
 //            strategy = GenerationType.TABLE,
 //            generator = "author_id_gen"
@@ -36,7 +35,8 @@ public class Author {
 //            sequenceName = "author_sequence",
 //            allocationSize = 1
 //    )
-    private Integer id;
+//    private Integer id;
+
     @Column(
             name = "f_name",
             length = 35

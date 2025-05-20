@@ -1,21 +1,21 @@
 package com.db.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@SuperBuilder
 @Entity
-public class Resource {
+@EqualsAndHashCode(callSuper=true)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+public class Resource extends BaseEntity{
 
-    @Id
-    @GeneratedValue
-    private Integer id;
+//    @Id
+//    @GeneratedValue
+//    private Integer id;
     private String name;
     private String url;
     private int size;
