@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-@MappedSuperclass // any entity that extends this class will have its attributes but this wont be a separate table
+@MappedSuperclass // any entity that extends this class will have its attributes but this won't be a separate table
 public class BaseEntity {
 
     @Id
