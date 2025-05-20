@@ -1,15 +1,21 @@
 package com.db.models;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.apache.catalina.LifecycleState;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "Author_Tbl", schema = "public")
+@Builder
 public class Author {
 
     @Id
@@ -43,14 +49,23 @@ public class Author {
     )
     private String email;
     private int age;
-    @Column(
-            updatable = false,
-            nullable = false
-    )
-    private LocalDateTime createdAt;
-    @Column(
-            insertable = false
-    )
-    private LocalDateTime lastModified;
+
+    // for mappedby we pass the name of attribute in the linked class which is "authors" in the Author class
+    @ManyToMany(mappedBy = "authors")
+    private List<Course> courses;
+
+
+
+
+
+//    @Column(
+//            updatable = false,
+//            nullable = false
+//    )
+//    private LocalDateTime createdAt;
+//    @Column(
+//            insertable = false
+//    )
+//    private LocalDateTime lastModified;
 
 }
