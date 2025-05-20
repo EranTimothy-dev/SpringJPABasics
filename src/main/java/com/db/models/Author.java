@@ -9,12 +9,26 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @EqualsAndHashCode(callSuper=false) // need to use when using inheritance
-@Data
+@Data()
+@ToString(callSuper=true) // print the parent entity attributes as well
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name = "Author_Tbl", schema = "public")
 @SuperBuilder
+@NamedQueries(
+        {
+
+                @NamedQuery(
+                        name = "Author.findByNameQuery",
+                        query = "select a from Author a where a.age >= :age"
+                ),
+                @NamedQuery(
+                        name = "Author.updateByNameQuery",
+                        query = "update Author a set a.age = :age"
+                )
+        }
+)
 public class Author extends BaseEntity {
 
 //    @Id
